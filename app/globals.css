@@ -1,0 +1,358 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --surface-glow: rgba(125, 211, 252, 0.36);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #020817;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.caustics {
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(255, 255, 255, 0.14), transparent 18%),
+    radial-gradient(ellipse at 70% 30%, rgba(103, 232, 249, 0.2), transparent 21%),
+    radial-gradient(ellipse at 45% 72%, rgba(255, 255, 255, 0.08), transparent 18%),
+    repeating-linear-gradient(115deg, transparent 0 34px, rgba(147, 197, 253, 0.08) 36px 40px, transparent 44px 78px);
+  filter: blur(10px);
+  transform-origin: center;
+  animation: caustic-drift 18s ease-in-out infinite alternate;
+}
+
+.light-column {
+  position: absolute;
+  top: -12vh;
+  width: min(18vw, 15rem);
+  background: linear-gradient(180deg, rgba(224, 252, 255, 0.22), rgba(125, 211, 252, 0.08) 42%, transparent 88%);
+  clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%);
+  filter: blur(18px);
+  mix-blend-mode: screen;
+  animation: light-sway 11s ease-in-out infinite alternate;
+}
+
+.animation-delay-slow {
+  animation-delay: -4s;
+}
+
+.animation-delay-slower {
+  animation-delay: -8s;
+}
+
+.reef-floor {
+  background:
+    radial-gradient(ellipse at 12% 100%, rgba(34, 197, 94, 0.26), transparent 28%),
+    radial-gradient(ellipse at 72% 100%, rgba(14, 116, 144, 0.36), transparent 34%),
+    radial-gradient(ellipse at 46% 100%, rgba(124, 58, 237, 0.16), transparent 25%),
+    linear-gradient(180deg, transparent, rgba(3, 7, 18, 0.88) 74%);
+}
+
+.coral {
+  position: absolute;
+  bottom: -1.5rem;
+  border-radius: 46% 54% 20% 20%;
+  filter: blur(0.2px) drop-shadow(0 -18px 40px rgba(45, 212, 191, 0.16));
+  opacity: 0.9;
+}
+
+.coral-a {
+  background:
+    radial-gradient(circle at 30% 25%, rgba(251, 113, 133, 0.7), transparent 13%),
+    radial-gradient(circle at 58% 34%, rgba(244, 114, 182, 0.54), transparent 14%),
+    radial-gradient(circle at 44% 60%, rgba(20, 184, 166, 0.5), transparent 20%),
+    linear-gradient(135deg, rgba(8, 47, 73, 0.6), rgba(15, 23, 42, 0.2));
+}
+
+.coral-b {
+  background:
+    radial-gradient(circle at 28% 42%, rgba(34, 197, 94, 0.52), transparent 18%),
+    radial-gradient(circle at 64% 28%, rgba(45, 212, 191, 0.45), transparent 14%),
+    linear-gradient(145deg, rgba(30, 64, 175, 0.48), rgba(2, 6, 23, 0.22));
+}
+
+.coral-c {
+  background:
+    radial-gradient(circle at 66% 25%, rgba(251, 191, 36, 0.46), transparent 13%),
+    radial-gradient(circle at 32% 46%, rgba(168, 85, 247, 0.46), transparent 16%),
+    radial-gradient(circle at 56% 64%, rgba(14, 165, 233, 0.42), transparent 19%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.3), rgba(2, 132, 199, 0.23));
+}
+
+.particle {
+  animation: particle-rise 16s linear infinite;
+}
+
+.fish-path {
+  left: -22rem;
+  border-radius: 999px;
+  filter: drop-shadow(0 16px 28px rgba(8, 47, 73, 0.34));
+}
+
+.reefArc {
+  animation: swim-reef 38s linear infinite;
+}
+
+.lagoonDrift {
+  animation: swim-lagoon 52s linear infinite;
+}
+
+.coralGlide {
+  animation: swim-coral 46s linear infinite;
+}
+
+.fish-float {
+  animation: fish-bob 4.8s ease-in-out infinite alternate;
+}
+
+.fish {
+  position: relative;
+  display: block;
+  aspect-ratio: 2.1 / 1;
+}
+
+.fish-body {
+  position: absolute;
+  inset: 12% 14% 12% 18%;
+  overflow: hidden;
+  border-radius: 52% 48% 48% 52% / 58% 55% 45% 42%;
+  box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.28), inset 0 -16px 22px rgba(2, 6, 23, 0.26), 0 0 22px rgba(125, 211, 252, 0.22);
+}
+
+.fish-tail {
+  position: absolute;
+  top: 25%;
+  left: 4%;
+  width: 28%;
+  height: 50%;
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 20% 50%);
+  transform-origin: right center;
+  animation: tail-swish 0.8s ease-in-out infinite alternate;
+}
+
+.fish-eye {
+  position: absolute;
+  top: 30%;
+  right: 14%;
+  width: 7%;
+  aspect-ratio: 1;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  background: #020617;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+}
+
+.fish-gill {
+  position: absolute;
+  top: 26%;
+  right: 28%;
+  width: 1px;
+  height: 48%;
+  background: rgba(15, 23, 42, 0.26);
+  transform: rotate(12deg);
+}
+
+.fish-shimmer {
+  position: absolute;
+  inset: -20% 0 auto 6%;
+  height: 52%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+  filter: blur(8px);
+  transform: rotate(-8deg);
+  animation: shimmer 5s ease-in-out infinite;
+}
+
+.fish-fin {
+  position: absolute;
+  left: 40%;
+  width: 22%;
+  height: 30%;
+  border-radius: 60% 40% 80% 20%;
+  opacity: 0.82;
+  transform-origin: left center;
+  animation: fin-wave 1.6s ease-in-out infinite alternate;
+}
+
+.fish-fin-top {
+  top: -5%;
+  clip-path: polygon(0 100%, 46% 0, 100% 100%);
+}
+
+.fish-fin-bottom {
+  bottom: -6%;
+  clip-path: polygon(0 0, 100% 0, 38% 100%);
+}
+
+.fish-clown .fish-body {
+  background:
+    linear-gradient(90deg, transparent 0 19%, white 20% 29%, transparent 30% 58%, white 59% 68%, transparent 69%),
+    linear-gradient(135deg, #fb923c, #f97316 45%, #ea580c);
+}
+
+.fish-clown .fish-tail,
+.fish-clown .fish-fin {
+  background: linear-gradient(135deg, #fed7aa, #f97316 55%, #7c2d12);
+}
+
+.fish-butterfly .fish-body {
+  background:
+    radial-gradient(circle at 76% 35%, #111827 0 8%, transparent 9%),
+    linear-gradient(105deg, rgba(17, 24, 39, 0.9) 0 16%, transparent 17% 100%),
+    repeating-linear-gradient(104deg, rgba(15, 23, 42, 0.38) 0 7%, transparent 8% 17%),
+    linear-gradient(135deg, #fde68a, #facc15 48%, #f97316);
+}
+
+.fish-butterfly .fish-tail,
+.fish-butterfly .fish-fin {
+  background: linear-gradient(135deg, #fef3c7, #facc15 55%, #111827);
+}
+
+.fish-tang .fish-body {
+  background:
+    radial-gradient(circle at 76% 36%, #eff6ff 0 7%, transparent 8%),
+    linear-gradient(90deg, #0f172a 0 14%, transparent 15% 100%),
+    linear-gradient(135deg, #38bdf8, #2563eb 48%, #1d4ed8 70%, #0f172a);
+}
+
+.fish-tang .fish-tail,
+.fish-tang .fish-fin {
+  background: linear-gradient(135deg, #fef08a, #facc15 48%, #0f172a);
+}
+
+@keyframes caustic-drift {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1) rotate(0deg);
+  }
+  to {
+    transform: translate3d(2%, 1%, 0) scale(1.05) rotate(2deg);
+  }
+}
+
+@keyframes light-sway {
+  from {
+    transform: translateX(-1rem) skewX(-6deg);
+    opacity: 0.45;
+  }
+  to {
+    transform: translateX(1.5rem) skewX(5deg);
+    opacity: 0.72;
+  }
+}
+
+@keyframes particle-rise {
+  from {
+    transform: translate3d(0, 10vh, 0) scale(0.7);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  to {
+    transform: translate3d(2.5rem, -26vh, 0) scale(1.15);
+    opacity: 0;
+  }
+}
+
+@keyframes swim-reef {
+  from {
+    transform: translate3d(-15vw, 0, 0) rotate(-1deg);
+  }
+  45% {
+    transform: translate3d(55vw, -8vh, 0) rotate(2deg);
+  }
+  to {
+    transform: translate3d(125vw, 2vh, 0) rotate(-1deg);
+  }
+}
+
+@keyframes swim-lagoon {
+  from {
+    transform: translate3d(126vw, 0, 0) scaleX(-1) rotate(1deg);
+  }
+  50% {
+    transform: translate3d(48vw, 7vh, 0) scaleX(-1) rotate(-2deg);
+  }
+  to {
+    transform: translate3d(-28vw, -4vh, 0) scaleX(-1) rotate(1deg);
+  }
+}
+
+@keyframes swim-coral {
+  from {
+    transform: translate3d(-24vw, 0, 0) rotate(2deg);
+  }
+  52% {
+    transform: translate3d(52vw, -12vh, 0) rotate(-2deg);
+  }
+  to {
+    transform: translate3d(128vw, -1vh, 0) rotate(1deg);
+  }
+}
+
+@keyframes fish-bob {
+  from {
+    transform: translateY(-0.35rem);
+  }
+  to {
+    transform: translateY(0.55rem);
+  }
+}
+
+@keyframes tail-swish {
+  from {
+    transform: rotateY(0deg) skewY(-4deg);
+  }
+  to {
+    transform: rotateY(34deg) skewY(5deg);
+  }
+}
+
+@keyframes fin-wave {
+  from {
+    transform: rotate(-4deg) scaleY(0.92);
+  }
+  to {
+    transform: rotate(7deg) scaleY(1.06);
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    transform: translateX(-60%) rotate(-8deg);
+    opacity: 0;
+  }
+  45%,
+  58% {
+    opacity: 0.8;
+  }
+  70% {
+    transform: translateX(75%) rotate(-8deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
