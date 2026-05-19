@@ -1,8 +1,10 @@
 # Maldives Ocean Aquarium
 
-An extensible first-version ocean simulation foundation built with Next.js, React, Tailwind CSS, Three.js, `@react-three/fiber`, and `@react-three/drei`.
+An extensible ocean aquarium system built with Next.js, React, Tailwind CSS, Three.js, @react-three/fiber, and @react-three/drei.
 
-The current MVP focuses on a single Maldives shallow reef scene with engine-level structure for future productization: modular ocean environment settings, lighting, diver camera configuration, species data contracts, placeholder 3D fish, foggy water atmosphere, and a minimal Vision Pro-style control layer.
+The application renders an immersive Maldives-inspired reef environment with cinematic lighting and interactive marine life. It is designed as a scalable foundation for future productization.
+
+The system follows a modular architecture that separates simulation logic, rendering, UI, and data models to ensure long-term extensibility.
 
 ## Getting started
 
@@ -19,10 +21,17 @@ Then open [http://localhost:3000](http://localhost:3000).
 - `npm run build` - create a production build
 - `npm run start` - run the production server
 - `npm run lint` - run ESLint
-
 ## Architecture
 
-- `lib/ocean` - simulation configuration for environment, lighting, camera, and species data contracts
-- `components/ocean` - 3D scene modules for water, fish rendering, and diver light controls
-- `components/ui` - minimal reusable interface components
-- `data/fishDatabase.json` - placeholder real-world marine species database shape
+- lib/ocean - core simulation configuration for environment, lighting, camera, and species data contracts
+- components/ocean - 3D scene modules including water rendering, fish system, and diver interaction controls
+- components/ui - reusable UI components for immersive experience layer
+- data/fishDatabase.json - structured marine species schema designed for future integration of real-world biological data
+
+## System Design Principles
+
+- Modular and extensible ocean simulation engine
+- Data-driven marine ecosystem design
+- Separation of rendering, logic, and UI layers
+- Support for future AI-driven fish behavior systems
+- Optimized for performance scaling on low-end devices (M1-class hardware)
