@@ -1,0 +1,29 @@
+[
+  {
+    "id": "paracanthurus-hepatus",
+    "name_en": "Blue Tang",
+    "name_zh": "蓝吊鱼",
+    "length_cm": 25,
+    "depth_range_m": [1, 40],
+    "speed": "medium",
+    "reef": true
+  },
+  {
+    "id": "amphiprion-nigripes",
+    "name_en": "Maldivian Clownfish",
+    "name_zh": "马尔代夫小丑鱼",
+    "length_cm": 11,
+    "depth_range_m": [1, 20],
+    "speed": "slow",
+    "reef": true
+  },
+  {
+    "id": "chaetodon-lunula",
+    "name_en": "Raccoon Butterflyfish",
+    "name_zh": "月斑蝴蝶鱼",
+    "length_cm": 20,
+    "depth_range_m": [1, 30],
+    "speed": "medium",
+    "reef": true
+  }
+]
